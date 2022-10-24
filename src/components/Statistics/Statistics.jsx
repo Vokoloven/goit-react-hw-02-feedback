@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledTitleH2 = styled.h2`
   font-size: ${p => p.theme.fontSizes.l}px;
 `;
 
 export const Statistic = ({ state }) => {
+  console.log(state);
   return (
     <>
       <StyledTitleH2>Statistic</StyledTitleH2>
@@ -15,4 +17,14 @@ export const Statistic = ({ state }) => {
       <p>Positive feedbacks: {state.positiveFeedback}%</p>
     </>
   );
+};
+
+Statistic.propTypes = {
+  state: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positiveFeedback: PropTypes.number.isRequired,
+  }),
 };

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledButton = styled.button`
   background: ${p => p.theme.colors.primary};
@@ -33,4 +34,11 @@ export const Button = ({ type = 'button', onClick, children, name }) => {
       {children}
     </StyledButton>
   );
+};
+
+Button.propTypes = {
+  type: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
